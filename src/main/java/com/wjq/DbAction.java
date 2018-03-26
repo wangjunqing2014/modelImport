@@ -1,12 +1,13 @@
 package com.wjq;
 
+import cn.hutool.setting.dialect.Props;
 import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wjq.entity.PprtDgMetaCore;
 import com.wjq.entity.TableEntity;
 import com.wjq.service.PprtDgMetaCoreService;
 import com.wjq.service.impl.PprtDgMetaCoreServiceImpl;
-import com.xiaoleilu.hutool.setting.dialect.Props;
+import com.wjq.util.ExecutorServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

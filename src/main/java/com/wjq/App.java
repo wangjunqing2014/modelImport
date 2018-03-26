@@ -1,26 +1,13 @@
 package com.wjq;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
+import cn.hutool.poi.excel.ExcelUtil;
+import cn.hutool.poi.excel.sax.handler.RowHandler;
 import com.wjq.entity.PprtDgMetaCore;
 import com.wjq.entity.TableEntity;
-import com.wjq.mapper.PprtDgMetaCoreDao;
-import com.wjq.service.PprtDgMetaCoreService;
-import com.wjq.service.impl.PprtDgMetaCoreServiceImpl;
-import com.xiaoleilu.hutool.collection.CollUtil;
-import com.xiaoleilu.hutool.lang.Console;
-import com.xiaoleilu.hutool.poi.excel.ExcelUtil;
-import com.xiaoleilu.hutool.poi.excel.sax.handler.RowHandler;
-import com.xiaoleilu.hutool.thread.ThreadUtil;
-import com.xiaoleilu.hutool.util.ArrayUtil;
-import lombok.extern.java.Log;
+import com.wjq.util.ExecutorServiceUtil;
 import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.ibatis.session.RowBounds;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -65,6 +52,7 @@ public class App
 	public static LinkedBlockingQueue<TableEntity> globalQueue = new LinkedBlockingQueue<>();
 
 	public static LinkedBlockingQueue<List<Map<String, List<Map<String, Map<String, String>>>>>> queue = new LinkedBlockingQueue();
+
 	private static RowHandler createRowHandler() {
 		return new RowHandler() {
 			public void handle(int sheetIndex, int rowIndex, List<Object> rowlist) {
@@ -73,7 +61,7 @@ public class App
 					//获取表名
 					if(tableNameRow == rowIndex){
 						if(!"英文名称".equals(rowlist.get(tableNameColumn-2))){
-							log.error(sheetIndex + "," + rowIndex + "," + sheetIndex + ",表名格式不正确！！！！  " + rowlist.toString());
+							log.error(sheetIndex + "," + rowIndex + "," + sheetIndex + ", 表名格式不正确！！！！  " + rowlist.toString());
 						}else{
 							tableName = (String)rowlist.get(tableNameColumn);
 							putTableToTableMap();

@@ -19,6 +19,7 @@
       <xerces.version>2.11.0</xerces.version>
       <log4j.version>1.2.17</log4j.version>
       <slf4j.version>1.7.19</slf4j.version>
+      <hutool.version>4.0.8</hutool.version>
   </properties>
 
   <dependencies>
@@ -105,9 +106,9 @@
       </dependency>
 
       <dependency>
-          <groupId>com.xiaoleilu</groupId>
+          <groupId>cn.hutool</groupId>
           <artifactId>hutool-all</artifactId>
-          <version>3.3.2</version>
+          <version>${hutool.version}</version>
       </dependency>
       <dependency>
           <groupId>org.apache.poi</groupId>
@@ -197,7 +198,7 @@
                         <program>
                             <id>modelImport</id>
                             <!-- 启动类 -->
-                            <mainClass>com.wjq.App</mainClass>
+                            <mainClass>com.wjq.application.ReadSpecificationApp</mainClass>
                             <name>start</name>
                             <jvmSettings>
                                 <extraArguments>
@@ -236,7 +237,7 @@
                     <daemons>
                         <daemon>
                             <id>modelImport</id>
-                            <mainClass>com.wjq.App</mainClass>
+                            <mainClass>com.wjq.application.ReadSpecificationApp</mainClass>
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>

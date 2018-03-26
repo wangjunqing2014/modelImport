@@ -11,6 +11,8 @@ import java.util.List;
 @Builder
 public class TableEntity {
 	private String tableName;
+	private String tableChName;
+	private String tableCmt;
 	private List<ColumnEntity> columnEntities;
 
 	@Data

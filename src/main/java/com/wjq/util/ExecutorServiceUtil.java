@@ -1,8 +1,8 @@
-package com.wjq;
+package com.wjq.util;
 
+import cn.hutool.core.thread.ThreadUtil;
 import com.wjq.entity.PprtDgMetaCore;
 import com.wjq.entity.TableEntity;
-import com.xiaoleilu.hutool.thread.ThreadUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class ExecutorServiceUtil {
 	public static ExecutorService executorService;
 	public static CompletionService<HashMap<String, String>> completionService;
 	public static int QUEUE_MAX_SIZE = 500;
-	public static double BLOCKING_COEFFICIENT = 0.7;
+	public static double BLOCKING_COEFFICIENT = 0.6;
 
 	static{
 		// 最佳的线程数 = CPU可用核心数 / (1 - 阻塞系数)
