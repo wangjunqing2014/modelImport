@@ -22,6 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
 * @author: wangjq
 * @date: 2018-03-26 14:26
+ * 根据规范接口excel更新模型数据
 */
 @Slf4j
 public class ReadSpecificationApp extends BaseApp {
@@ -92,14 +93,6 @@ public class ReadSpecificationApp extends BaseApp {
 		}else{
 			log.error("---------> 该表名已存在，被跳过!!!  " + tableName);
 		}
-	}
-
-	private static List<PprtDgMetaCore> getTablesByName(String tableName){
-		//先查询表
-		List<PprtDgMetaCore> tableList = pprtDgMetaCoreService.selectList(new EntityWrapper<PprtDgMetaCore>()
-				.eq("PRT_ID", props.getStr("baseProjectId"))
-				.like("NAME", tableName.trim()));
-		return tableList;
 	}
 
 	private static void updateDb(){

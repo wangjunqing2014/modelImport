@@ -20,4 +20,11 @@ public class BaseApp {
 		props.autoLoad(true);
 	}
 
+	protected static List<PprtDgMetaCore> getTablesByName(String tableName){
+		//先查询表
+		List<PprtDgMetaCore> tableList = pprtDgMetaCoreService.selectList(new EntityWrapper<PprtDgMetaCore>()
+				.eq("PRT_ID", props.getStr("baseProjectId"))
+				.like("NAME", tableName.trim()));
+		return tableList;
+	}
 }

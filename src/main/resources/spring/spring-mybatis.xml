@@ -71,7 +71,7 @@
 			ID_WORKER->`2`("全局唯一ID")
 			UUID->`3`("全局唯一ID")
 		-->
-	    <property name="idType" value="2" />
+	    <property name="idType" value="3" />
 		<!--
 			MYSQL->`mysql`
 			ORACLE->`oracle`
